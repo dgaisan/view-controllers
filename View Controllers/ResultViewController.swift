@@ -10,6 +10,9 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    public var isGoing: Bool!
+    public var name: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

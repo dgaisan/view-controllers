@@ -20,8 +20,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func submitSurvey() {
-        var resultViewController = self.storyboard!.instantiateViewController(withIdentifier: "GreenVC") as! ResultViewController
+        let resultViewController = self.storyboard!.instantiateViewController(withIdentifier: "GreenVC") as! ResultViewController
         
+        resultViewController.name = textField.text
+        resultViewController.isGoing = checkbox.isOn
         self.show(resultViewController, sender: self)
     }
     
@@ -36,7 +38,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var newText: NSString = textField.text! as NSString
         newText = newText.replacingCharacters(in: range, with: string) as NSString
         
-        return newText.length > 0
+        submitButton.isEnabled = newText.length > 0
+        checkbox.isEnabled = newText.length > 0
+        
+        return true
     }
 }
 
