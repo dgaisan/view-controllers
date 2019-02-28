@@ -2,9 +2,6 @@
 //  AppDelegate.swift
 //  View Controllers
 //
-//  Created by Dmitri Gaisan on 2/27/19.
-//  Copyright © 2019 Dmitri Gaisan. All rights reserved.
-//
 
 import UIKit
 
