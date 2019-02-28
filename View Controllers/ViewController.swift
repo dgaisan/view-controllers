@@ -41,7 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         submitButton.isEnabled = newText.length > 0
         checkbox.isEnabled = newText.length > 0
         
-        return true
+        return newText.length < 10
     }
 }
 
