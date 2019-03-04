@@ -26,10 +26,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.show(resultViewController, sender: self)
     }
     
-    func initControls() {
+    private func initControls() {
         textField.delegate = self
         submitButton.isEnabled = false
         checkbox.isEnabled = false
+    }
+    
+    private func updateControlsEnabled(_ value: Bool) {
+        submitButton.isEnabled = value
+        checkbox.isEnabled = value
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -37,8 +42,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         var newText: NSString = textField.text! as NSString
         newText = newText.replacingCharacters(in: range, with: string) as NSString
         
-        submitButton.isEnabled = newText.length > 0
-        checkbox.isEnabled = newText.length > 0
+        updateControlsEnabled(newText.length > 0)
         
         return newText.length < 10
     }
